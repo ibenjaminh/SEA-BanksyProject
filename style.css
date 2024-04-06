@@ -1,70 +1,153 @@
-html,
-body {
+/* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    max-height: 100%;
+    max-width: 100%;
+}
+html, body {
+
     margin: 0;
     padding: 0;
 }
-
-.main-header {
-    background-color: rgba(0, 0, 0, .3);
-    padding-bottom: 10px;
+* {
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-.title {
-    text-align: center;
-    margin: 0;
-    font-size: 8em;
-    font-family: "Helvetica";
-    font-weight: normal;
+
+
+
+#landing-page {
+    display: flex;
+    min-height: 100vh;
+    background-image: url("images/girlBalloon.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Covered By Your Grace', cursive; /* Applies the custom font */
     color: white;
 }
 
-#card-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-}
-
-.card {
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 5px;
-}
-
-.card-content {
-    padding: 20px;
-    font-family: "Verdana";
-    color: #777;
-}
-
-.card-content h2 {
-    margin-top: 0;
-    font-size: 20px;
-}
-
-.card img {
+header {
     width: 100%;
-    height: auto;
+    height: 20%;
 }
 
-.footer {
+nav {
     display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, .3);
-    padding: 10px;
+    position: relative;
+    background-color: lightgrey;
+    opacity: 0.8;
 }
 
-button {
-    text-align: center;
-    background-color: #666;
-    border: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 40px;
-    border-radius: 10px;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-    margin: 5px;
+nav ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
 }
+
+nav li{
+    font-size: 3em;
+    margin-right: 5em;
+    display: flex;
+    align-items: center;
+}
+
+nav li:last-child {
+    margin-right: 0; /* Adjust as needed */
+}
+
+#banksy-item {
+    margin-left: 3em;
+    margin-right: 25rem;
+    font-size: 3.3em;
+}
+
+nav li a {
+    text-decoration: none; /* Removes underline */
+    color: white; /* Changes color to white */
+}
+
+form.search{
+    position: absolute;
+    right: 6rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+#landing-page .title {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+
+
+
+}
+.special{
+    color: #92213D;
+    opacity: 0.9;
+}
+#landing-page .title h1 {
+    font-size: 10.5rem;
+    font-weight: bold;
+    margin-top: 3.6em;
+    margin-left: 3rem;
+
+
+
+}
+#landing-page .title h2 {
+    font-size: 4.8rem;
+    font-weight: normal;
+    margin-top: -25px;
+    margin-left: 7rem;
+    color: #e8e8e8;
+
+
+}
+
+
+
