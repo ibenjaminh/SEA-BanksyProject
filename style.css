@@ -21,133 +21,310 @@ time, mark, audio, video {
     max-height: 100%;
     max-width: 100%;
 }
-html, body {
 
-    margin: 0;
-    padding: 0;
-}
 * {
     box-sizing: border-box;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
+
+/* Full-width and full-height setup for body and html, overflowx hidden prevent horizontal scroll */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #2A3036;
 }
 body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
+    font-family: 'Covered By Your Grace', cursive;
 
-
+}
 
 
 #landing-page {
+    position: relative;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
     background-image: url("images/girlBalloon.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'Covered By Your Grace', cursive; /* Applies the custom font */
+    background-position: 30% center; /* Adjust this value */
+    font-family: 'Covered By Your Grace', cursive;
     color: white;
 }
 
-header {
-    width: 100%;
-    height: 20%;
-}
 
-nav {
+
+.firstNav {
     display: flex;
-    position: relative;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    width: 100%;
     background-color: lightgrey;
     opacity: 0.8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0.2rem 0; /* Add some padding */
+    z-index: 1000; /* Ensure navbar is above other content */
 }
 
-nav ul {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
 
-}
 
-nav li{
-    font-size: 3em;
-    margin-right: 5em;
+
+.firstNav ul {
     display: flex;
+    justify-content: space-around; /* Distribute space around items */
     align-items: center;
+    width: 100%;
+    list-style: none;
 }
 
-nav li:last-child {
-    margin-right: 0; /* Adjust as needed */
+
+
+.firstNav ul li {
+    text-align: center;
+    margin: 0 2rem;
 }
+
+
+
 
 #banksy-item {
-    margin-left: 3em;
-    margin-right: 25rem;
-    font-size: 3.3em;
+    font-size: 1.5em; /* Increase font size for "banksy" item */
+    flex-grow: 1; /* Optional: Allow "banksy" item to take up more space if needed */
 }
+
+
+
 
 nav li a {
-    text-decoration: none; /* Removes underline */
-    color: white; /* Changes color to white */
+    text-decoration: none;
+    color: white;
+    font-size: 2em; /* base font size for navigation links */
 }
 
-form.search{
-    position: absolute;
-    right: 6rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
+
 
 
 
 #landing-page .title {
-    display: flex;
-    flex-direction: column;
     position: absolute;
+    left: 5%; /* horizontal positioning */
+    bottom: 5%; /* vertical positioning */
     text-align: left;
+    width: auto; /*container can grow as needed */
+    max-width: 90%; /* prevents the title from stretching too wide */
+}
+
+
+#landing-page .title h1 {
+    margin-bottom: -0.5em;
+    font-size: 8vw;
+}
+.special {
+    color: #92213D;
+}
+
+#landing-page .title h2 {
+    font-size: 4vw;
+    color: #D9D9D9;
+}
+
+
+#gallery-display, #all-about-banksy, .secondNav, .artworks, .pulp {
+    width: 100%; /* full width */
+    padding: 2vw; /* responsive padding */
+}
+
+
+.secondNav {
+    display: flex;
+    justify-content: center; /*horizontal*/
+    align-items: center; /*vertical*/
     width: 100%;
 
 
-
 }
-.special{
+
+.secondNav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+}
+
+.secondNav li {
+    text-align: center;
+    margin: 0 5rem; /* spacing between items */
     color: #92213D;
-    opacity: 0.9;
 }
-#landing-page .title h1 {
-    font-size: 10.5rem;
-    font-weight: bold;
-    margin-top: 3.6em;
-    margin-left: 3rem;
 
 
+
+/*spacing for smaller screens */
+@media (max-width: 768px) {
+    .secondNav {
+        margin-bottom: 10px; /* Less space for smaller devices */
+    }
+}
+
+
+
+#all-about-banksy {
+    display: flex;
+    flex-direction: column;
+}
+
+/*About*/
+
+.about h1 {
+    font-size: 3vw;
+    color: #92213D;
+}
+.about p{
+    font-family: 'Dm Sans', sans-serif;
+    font-size: 1.25vw;
+    color: #D9D9D9;
+    line-height: 2;
+}
+.banksy{
+    width: 35vw; /* eesponsive width */
+    height: auto; /* keep aspect ratio */
+    margin: 2vw; /* responsive margin */
+    float: right;
+    margin-top: 0;
+    padding-top: 0;
+}
+/* Artworks Section */
+
+.artworks h1{
+    font-size: 3vw;
+    color: #92213D;
+}
+
+.artworks p{
+    font-family: 'Dm Sans', sans-serif;
+    font-size: 1.25vw;
+    color: #D9D9D9;
+    line-height: 2;
 
 }
-#landing-page .title h2 {
-    font-size: 4.8rem;
-    font-weight: normal;
-    margin-top: -25px;
-    margin-left: 7rem;
-    color: #e8e8e8;
 
-
+.pulp {
+    width: 35vw; /* responsive width */
+    height: auto; /* keep aspect ratio */
+    margin: 2vw; /* responsive margin */
+    float: right;
+    margin-top: 0;
+    padding-top: 0;
 }
+
+/*News*/
+
+.news h1 {
+    color: #92213D;
+    font-size: 3vw;
+    text-align: center;
+}
+
+.newsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+.newsItem {
+    text-align: center;
+    width: 200px;
+    height: auto;
+    letter-spacing: 1px;
+    margin: 40px;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.newsItem h2 {
+    font-family: "Dm Sans", sans-serif;
+    font-size: 0.57vw;
+}
+.newsItem h2:hover {
+    text-decoration: underline;
+}
+
+.newsItem img {
+    max-height: 145px;
+    opacity: 0.8;
+}
+
+.newsItem a {
+    color: #D9D9D9;
+    text-decoration: none;
+}
+
+/*screens up to 768px wide */
+@media (max-width: 768px) {
+    .firstNav li, nav li a {
+        font-size: 5em; /* increase font size for readability on small screens */
+    }
+
+    #banksy-item {
+        font-size: 1.3em; /* slightly larger font for the "banksy" item on small screens */
+    }
+}
+
+/* iPhones in portrait mode */
+@media (max-width: 480px) {
+    .firstNav li, nav li a {
+        font-size: 5em; /* increase if needed for very small screens */
+    }
+
+    #banksy-item {
+        font-size: 1.5em; /*increase for the "banksy" item on very small screens */
+    }
+}
+
+
+
+/* finer control at different breakpoints */
+@media (max-width: 768px) {
+    .firstNav li {
+        font-size: 4vw; /* slightly for better readability on smaller screens */
+    }
+
+    .pulp {
+        width: 75vw; /* increase width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #banksy-item {
+        margin-right: 10vw; /* margin for very small screens */
+    }
+
+    .firstNav li {
+        padding: 2vw; /* padding for better tap targets */
+    }
+}
+/* font size adjustment for smaller screens */
+@media (max-width: 768px) {
+    .firstNav li, nav li a {
+        font-size: 0.9em; /* smaller font size for nav items on smaller screens */
+    }
+
+    #banksy-item {
+        font-size: 1.3em; /* "banksy" item larger but slightly reduce for small screens */
+    }
+}
+
+
+
+
 
 
 
