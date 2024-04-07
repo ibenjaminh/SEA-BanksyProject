@@ -135,7 +135,7 @@ nav li a {
 }
 
 
-#gallery-display, #all-about-banksy, .secondNav, .artworks, .pulp {
+#gallery-display, #all-about-banksy, .secondNav, .artworks, .pulp, .about {
     width: 100%; /* full width */
     padding: 2vw; /* responsive padding */
 }
@@ -162,6 +162,7 @@ nav li a {
     text-align: center;
     margin: 0 5rem; /* spacing between items */
     color: #92213D;
+    border-bottom: 1px solid white;
 }
 
 
@@ -182,17 +183,20 @@ nav li a {
 
 /*About*/
 
-.about h1 {
+
+#about-banksy h1 {
     font-size: 3vw;
     color: #92213D;
+    border-bottom: 1px solid white;
+
 }
-.about p{
+#about-banksy p{
     font-family: 'Dm Sans', sans-serif;
     font-size: 1.25vw;
     color: #D9D9D9;
     line-height: 2;
 }
-.banksy{
+#about-banksy .banksy{
     width: 35vw; /* eesponsive width */
     height: auto; /* keep aspect ratio */
     margin: 2vw; /* responsive margin */
@@ -202,12 +206,14 @@ nav li a {
 }
 /* Artworks Section */
 
-.artworks h1{
+#artworks h1{
     font-size: 3vw;
     color: #92213D;
+    border-bottom: 1px solid white;
+
 }
 
-.artworks p{
+#artworks p{
     font-family: 'Dm Sans', sans-serif;
     font-size: 1.25vw;
     color: #D9D9D9;
@@ -226,10 +232,11 @@ nav li a {
 
 /*News*/
 
-.news h1 {
+#news h1 {
     color: #92213D;
     font-size: 3vw;
     text-align: center;
+    border-bottom: 1px solid white;
 }
 
 .newsContainer {
