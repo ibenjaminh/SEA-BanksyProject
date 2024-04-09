@@ -5,7 +5,14 @@
     <title>Banksy Art Gallery</title>
     <meta name="description" content="A Catalog of Art by Banksy">
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">   <!-- <script type="text/javascript" src="scripts.js"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script type="text/javascript" src="scripts.js" defer></script>
 </head>
 
 <body>
@@ -16,7 +23,7 @@
                 <ul>
                     <li id="banksy-item"><a href="#home">Banksy</a></li>
                     <li><a href="#landing-page">Home</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#gallery-display">Gallery</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
                 <form action="" method="get" class="search">
@@ -35,18 +42,48 @@
 
     <div id="gallery-display">
 
-        <div class="tabs">
-            <select id="sort" onchange="sortImages()">
-                <option value="location">Location</option>
-                <option value="date">Date</option>
-                <option value="theme">Theme</option>
-            </select>
+        <div id="tabs">
+            <h1>Filter Art</h1>
+            <div class="selectContainers">
+                <div class="dropDownContainer">
+                    <label for="Topics">Topic</label>
+                    <select id="Topics" multiple="multiple">
+                        <option value="Art History">Art History</option>
+                        <option value="Consumerism">Consumerism</option>
+                        <option value="Monkeys">Monkeys</option>
+                        <option value="Murals">Murals</option>
+                        <option value="Originals">Originals</option>
+                        <option value="Oils">Oils</option>
+                        <option value="Ecology">Ecology</option>
+                        <option value="Warfare">Warfare</option>
+                        <option value="date">Date</option>
+                    </select>
+                </div>
+
+                <div class="dropDownContainer">
+                    <label for="sort-by">Sort Order</label>
+                    <select id="sort-by" multiple="multiple">
+                        <option value="recent">Recent to Oldest</option>
+                        <option value="oldest">Oldest to Recent</option>
+                        <option type="checkbox" value="alpha">Alphabetical Order</option>
+                    </select>
+                </div>
+
+            </div>
         </div>
 
         <div id="image-container">
             <!-- images will be added here using JavaScript -->
         </div>
+        <div class="buttons">
+            <button id="prev-button">Previous Page</button>
+            <button id="next-button">Next</button>
+        </div>
 
+
+        <div id="page-numbers">
+
+        </div>
     </div>
 
     <div class="secondNav">
@@ -66,12 +103,16 @@
         <h1>About Banksy</h1>
         <img src="images/banksy_.jpg" alt="Banksy in the dark" class="banksy">
         <p>Arguably the most controversial street artist in the world, Banksy&apos;s works have become a subculture in their own right. Banksy&apos;s political statements and disruptive vision have impacted cities across the globe at vital moments in modern history, provoking alternative viewpoints and encouraging revolution in the art world. His identity remains unknown, even after more than 30 years of involvement in the global graffiti scene. He has worked in many street art mediums and in many styles, breaking down the boundaries and expectations of street art critics. His work includes powerful, often controversial images, encouraging the rapid spread of his name and work across the internet. Today, his iconic works have been re-shared and repurposed beyond measure.
-            Banksy&apos;s early days in graffiti art
+            <br><br><br><br>Banksy&apos;s early days in graffiti art
             Banksy began his graffiti career by admiring the works of Blek Le Rat. He often recycled the artist&apos;s old ideas, moulding his own distinctive voice and style as he went. Initially, he was part of a graffiti crew in Bristol by the name of DryBreadZ Crew or DBZ. Soon after, he began to partner with Inkie, another notable graffiti street artist.
             At the age of 18, Banksy was nearly caught vandalizing public spaces by police. As his crew fled from the scene, Banksy was stuck hiding beneath a dustbin van. Banksy noticed stencil letters sprayed onto the truck, and, as he had been looking for a faster way to paint at the time, he decided stencilling would be his new graffiti style.
-            Banksy&apos;s works often take the form of multi-layered stencils combined with other media sources. He sometimes includes objects that already exist on his chosen &apos;canvas,&apos; such as street signs and fire hydrants, to turn his work into striking street art installations. His artwork is often satirical, combining dark humour with messages about art, philosophy, and politics.
+            Banksy&apos;s works often take the form of multi-layered stencils combined with other media sources.
+            He sometimes includes objects that already exist on his chosen &apos;canvas,&apos; such as street signs and fire hydrants, to turn his work into striking street art installations. His artwork is often satirical, combining dark humour with messages about art, philosophy, and politics.
             By the early 2000s, Banksy had relocated from Bristol to London, where he began to gain notoriety; but, at the same time, his international work was taking off. He soon decided to travel to Palestine and the West Bank, where he stencilled nine now-iconic images onto the newly-erected West Bank Wall, including &apos;Love is in the Air.&apos; These images were an instant hit and exploded online.
-            At this time, Banksy&apos;s silkscreen prints and stencil paintings were racking up record-breaking sales in storied art auctions such as Sotheby&apos;s and Bonhams of London. These successful sales marked Banksy&apos;s dramatic entry into the commercial art world. In 2010, Banksy assumed the role of author and filmmaker for his film &apos;Exit Through the Gift Shop.&apos;
+            At this time, Banksy&apos;s silkscreen prints and stencil paintings were racking up record-breaking sales in storied art auctions such as Sotheby&apos;s and Bonhams of London. These successful sales marked Banksy&apos;s dramatic entry into the commercial art world.
+<br><br><br>
+
+            In 2010, Banksy assumed the role of author and filmmaker for his film &apos;Exit Through the Gift Shop.&apos;
             Who is Banksy?
             Very little is known about Banksy himself, as he refuses to be interviewed and carefully maintains his anonymity. A world-renowned mystery man, Banksy has risen through the ranks to become one of the world&apos;s greatest street artists partly by cultivating in his collectors an urgency and desire to unveil his character. Street art fanatics are consistently impressed by the far-reaching scope, variety, and bravery of every artwork he delivers, but are always left wanting more. This tactic encourages viewers to explore a completely new perspective or idea, often inspiring both amateur and professional artists. This inspiration is also known as the “Banksy Effect.”
             A number of claims have been made over Banksy&apos;s identity, fuelling media interest. Most recently, many sources, including an entire newspaper publication, suggested he was a Bristol native by the name of Robin Gunninham. Though the prospect of uncovering Banksy&apos;s identity would allow for a greater understanding of his motives and mission, no claim had ever been confirmed. His identity has reputedly even been concealed from his family.
@@ -87,7 +128,7 @@
             &quot;The art world is the biggest joke,&quot; he said. &quot;It&apos;s a rest home of the over privileged, the pretentious, and the weak.&quot;
             Although details of the artist&apos;s life are largely unknown, it is thought that Banksy was born in Bristol, United Kingdom, c. 1974, starting his career as a graffiti artist in the city.
              Better Out Than In, Banksy&apos;s month-long residency in New York during October 2013, featured a man hawking the artist&apos;s paintings for $60 a piece outside Central Park.
-            In 2015, Banksy opened Dismaland Bemusement Park, a temporary art exhibition that functioned as a theme park.
+            In 2015, Banksy opened Dismaland Bemusement Park, a temporary art exhibition that functioned as a theme park.<br><br>
             After a 36-day run, its workers and materials were sent to the Calais migrant camp in France to build additional housing.
             Among the artist&apos;s most famous stunts include his shredded painting: When a painting by Banksy was sold at auction for $1.4 million in 2018, a mechanism was triggered to cause the artwork to partially destroy itself, resulting in a new piece titled &quot;Love in the Bin&quot;(2018).
             The ongoing question as to who Banksy is continued to reach the headlines when in 2017 Robert Del Naja, the singer of the band Massive Attack, was falsely rumored to be Banksy.
@@ -214,6 +255,7 @@
             Remove A Card!
         </button>
     </div> -->
+
 </body>
 
 </html>

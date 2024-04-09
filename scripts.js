@@ -22,7 +22,202 @@
  *    with the string you added to the array, but a broken image.
  * 
  */
+let data;
+let currentPage = 1;
+const itemsPerPage = 9;
+let filteredData;
 
+
+
+
+// Fetch the JSON data and call the function to display the images
+fetch('./image_data.json') // Replace 'path/to/your/data.json' with the actual path to your JSON file
+    .then(response => response.json())
+    .then(json => {
+        data = json;
+
+        // By default load original theme
+        filteredData = data.filter(function (image)// if image theme = selected theme, put it into filtered data
+        {
+            return image.theme === 'Originals';
+        });
+        displayImages();
+    })
+    .catch(error => console.error('Error:', error));
+
+
+
+// Pagination and Display Functions
+
+// CALCULATE TOTAL PAGES
+function calculateTotalPages(){
+    return Math.ceil(filteredData.length / itemsPerPage); // Total pages according to filtered data
+}
+
+
+
+// DISPLAY PAGE NUMBERS
+// DISPLAY PAGE NUMBERS
+function updatePageNumbers(){
+    const totalPages = calculateTotalPages();
+    const pageNumbersDiv = document.getElementById('page-numbers');
+    pageNumbersDiv.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++)
+    {
+        if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+            const pageNumber = document.createElement('span');
+            pageNumber.textContent = i;
+            pageNumber.classList.add('page-number');
+            if (i === currentPage) {
+                pageNumber.classList.add('current-page');
+            }
+            pageNumbersDiv.appendChild(pageNumber);
+        } else if (i === currentPage - 3 || i === currentPage + 3) {
+            const ellipsis = document.createElement('span');
+            ellipsis.textContent = '...';
+            ellipsis.classList.add('ellipsis');
+            pageNumbersDiv.appendChild(ellipsis);
+        }
+    }
+}
+
+
+// DISPLAY IMAGES
+function displayImages() {
+    const gallery = document.getElementById('image-container');
+    gallery.innerHTML = ''; // Clear the pages images before putting new ones in
+
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+
+
+    filteredData.slice(start, end).forEach(image => {
+        const img = document.createElement('img');
+        img.src = `./images/banksy/${image.filename}`; // Replace 'path/to/images/' with the actual path to your images folder
+        gallery.appendChild(img);
+
+        const title = document.createElement('p'); // Create paragraph element
+        title.textContent = image.title;
+
+        const div = document.createElement('div'); // Create div to hold img and title
+        div.appendChild(img); // Add img to div
+        div.appendChild(title); // Add title to div
+
+        gallery.appendChild(div); // Add the div to the gallery
+    });
+
+    updatePageNumbers()
+}
+
+
+
+
+
+
+
+// Pages functions
+function nextPage() {
+    if (currentPage < calculateTotalPages())
+    {
+        currentPage++;
+        displayImages()
+    }
+}
+
+function previousPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        displayImages()
+    }
+}
+
+
+
+
+
+// Event listener for next and previous buttons
+document.getElementById('next-button').addEventListener('click', nextPage);
+document.getElementById('prev-button').addEventListener('click', previousPage);
+
+
+
+
+
+
+// Sorting and filtering functions
+
+// THEME SORTING
+
+
+// Recent & Oldest
+
+$('#Topics').on('change', function() {
+    let selectedThemes = $(this).val(); // Turn selected themes into array
+
+    //Reset current paages and update page number
+    currentPage = 1;
+    updatePageNumbers();
+
+    // Filter data based on selected themes
+    filteredData = data.filter(function(image)
+    {
+        return selectedThemes.includes(image.theme); // if image.theme = selected.themes return true
+    });
+    displayImages();
+});
+
+$('#sort-by').on('change', function(){
+    let selectedOptions = $(this).val(); // Turn selected sorting into array
+
+    currentPage = 1;
+    updatePageNumbers();
+
+    // Sort data based on selected options
+    if (selectedOptions.includes('recent')) {
+        filteredData.sort(function(a, b){
+            return b.year - a.year;
+        });
+    }
+    if (selectedOptions.includes('oldest')) {
+        filteredData.sort(function(a, b){
+            return b.year - a.year;
+        });
+    }
+    displayImages();
+});
+
+// Select 2 Plugin
+$(document).ready(function() {
+    $('#Topics').select2({
+        placeholder: "Select"
+    });
+});
+
+$(document).ready(function(){
+    $('#sort-by').select2({
+        placeholder: "Select"
+    });
+})
+
+//Event listener for date-sort dropdown
+
+/* document.addEventListener('DOMContentLoaded', function() {
+    // Your code here
+    document.getElementById('sort').addEventListener('change', function() {
+        const selectedOption = this.value;
+
+        const dateSortElement = document.getElementById('date-sort');
+
+        if (selectedOption) {
+            dateSortElement.style.display = 'block'; // make date sort option visible
+        } else {
+            dateSortElement.style.display = 'none'; // leave date sort option hidden
+        }
+    });
+
+    document.getElementById('date-sort').addEventListener('change', sortAndDisplayImagesByDate);
+}); */
 /*
 const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
 const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";

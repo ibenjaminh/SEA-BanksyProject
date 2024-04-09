@@ -37,6 +37,7 @@ html, body {
 }
 body {
     font-family: 'Covered By Your Grace', cursive;
+    color: white;
 
 }
 
@@ -139,7 +140,116 @@ nav li a {
     width: 100%; /* full width */
     padding: 2vw; /* responsive padding */
 }
+/*Gallery */
+#gallery-display {
 
+    overflow: auto;
+}
+
+#gallery-display img {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+}
+
+#image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.buttons {
+    text-align: center;
+    box-sizing: unset;
+    display: contents;
+
+}
+
+#page-numbers {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5vw;
+}
+/* Finish This */
+.page-number {
+    margin-right: 5px;
+}
+.ellipsis {
+    margin-right: 5px;
+}
+
+
+/* Position title and dropdown top to bottom */
+#tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#tabs h1 {
+    font-size: 2vw;
+    color: #92213D;
+}
+/* Select2 */
+.select2-container .select2-selection--multiple {
+    min-height: 32px;
+}
+
+.select2-container .select2-selection--multiple .select2-selection__rendered {
+    display: flex;
+}
+
+.select2-dropdown {
+    border: none; /* Remove the border of the dropdown */
+}
+
+.select2-results__option {
+    padding: 10px; /* Add some padding to the options in the dropdown */
+}
+
+.select2-results__option--highlighted {
+    background-color: #007bff; /* Change the background color of the highlighted option */
+    color: #fff; /* Change the text color of the highlighted option */
+}
+
+
+.select2-container--open {
+    width: 100px;
+}
+.select2-results__options {
+    background-color: darkgrey;
+}
+
+.select2-container {
+    width: 500px !important;
+    color: #2A3036;
+    font-family: 'Patrick Hand', sans-serif;
+}
+
+.select2-selection__placeholder {
+    font-family: 'Covered By Your Grace', cursive;
+}
+
+
+.selectContainers {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.selectContainers select {
+    flex: 1 1 auto;
+    margin: 0 10px;
+}
+
+.dropDownContainer {
+    display: flex;
+    flex-direction: column;
+}
+/*Second Nav bar */
 
 .secondNav {
     display: flex;
@@ -173,6 +283,9 @@ nav li a {
         margin-bottom: 10px; /* Less space for smaller devices */
     }
 }
+
+
+
 
 
 
