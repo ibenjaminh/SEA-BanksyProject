@@ -15,7 +15,6 @@ time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
     vertical-align: baseline;
     max-width: 100%;
@@ -55,7 +54,7 @@ body {
     background-image: url("images/girlBalloon.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 30% center; /* Adjust this value */
+    background-position: 30% center; /* Adjust */
     font-family: 'Covered By Your Grace', cursive;
     color: white;
 }
@@ -99,7 +98,7 @@ body {
 
 #banksy-item {
     font-size: 1.5em; /* Increase font size for "banksy" item */
-    flex-grow: 1; /* Optional: Allow "banksy" item to take up more space if needed */
+    flex-grow: 1; /*  Allow "banksy" item to take up more space if needed */
     text-align: left;
 }
 
@@ -182,7 +181,6 @@ nav li a {
 
 
 
-
 #page-numbers {
     display: flex;
     justify-content: center;
@@ -237,8 +235,8 @@ nav li a {
 }
 
 .select2-results__option--highlighted {
-    background-color: #007bff; /* Change the background color of the highlighted option */
-    color: #fff; /* Change the text color of the highlighted option */
+    background-color: #007bff; /*  background color of the highlighted option */
+    color: #fff; /* text color of the highlighted option */
 }
 
 
