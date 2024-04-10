@@ -72,7 +72,14 @@ function updatePageNumbers(){
             if (i === currentPage) {
                 pageNumber.classList.add('current-page');
             }
+
+            pageNumber.addEventListener('click', function() {
+                currentPage = i;
+                displayImages();
+            });
+
             pageNumbersDiv.appendChild(pageNumber);
+
         } else if (i === currentPage - 3 || i === currentPage + 3) {
             const ellipsis = document.createElement('span');
             ellipsis.textContent = '...';
@@ -91,20 +98,73 @@ function displayImages() {
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
 
+    // Selects all the overlay elements
 
     filteredData.slice(start, end).forEach(image => {
         const img = document.createElement('img');
         img.src = `./images/banksy/${image.filename}`; // Replace 'path/to/images/' with the actual path to your images folder
         gallery.appendChild(img);
 
+
+
         const title = document.createElement('p'); // Create paragraph element
-        title.textContent = image.title;
+        title.textContent = image.title + ' (' + image.year + ') ';
 
         const div = document.createElement('div'); // Create div to hold img and title
         div.appendChild(img); // Add img to div
         div.appendChild(title); // Add title to div
 
         gallery.appendChild(div); // Add the div to the gallery
+
+
+        // Select all images
+        const images = document.querySelectorAll('#image-container img');
+
+        let enlargedImage = null; // Variable to keep track of the currently enlarged image
+
+// Add click event listener to each image
+        images.forEach(img => {
+            img.addEventListener('click', function(event) {
+                // Prevent the document's click event from firing
+                event.stopPropagation();
+
+                // Change opacity
+                this.style.opacity = '1';
+                // If an image is already enlarged, revert it back to its original size
+                if (enlargedImage) {
+                    enlargedImage.style.width = '300px';
+                    enlargedImage.style.height = '300px';
+                    enlargedImage.style.zIndex = 0;
+                    enlargedImage.classList.remove('enlarged');
+                }
+
+                // Resize the image to its natural size
+                this.style.width = this.naturalWidth + 'px';
+                this.style.height = this.naturalHeight + 'px';
+
+                // Bring the image to the front
+                this.style.zIndex = 1;
+
+                // Add a class to indicate that the image is enlarged
+                this.classList.add('enlarged');
+
+                // Update the currently enlarged image
+                enlargedImage = this;
+            });
+        });
+
+// Add click event listener to the document body
+        document.body.addEventListener('click', function() {
+            // If an image is enlarged, resize it back to its original size
+            if (enlargedImage) {
+                enlargedImage.style.width = '300px';
+                enlargedImage.style.height = '300px';
+                enlargedImage.style.zIndex = 0;
+                enlargedImage.classList.remove('enlarged');
+                enlargedImage = null; // Reset the currently enlarged image
+            }
+        });
+
     });
 
     updatePageNumbers()
@@ -134,13 +194,33 @@ function previousPage() {
 
 
 
-
+// EVENT LISTENERS
 
 // Event listener for next and previous buttons
 document.getElementById('next-button').addEventListener('click', nextPage);
 document.getElementById('prev-button').addEventListener('click', previousPage);
 
+// Select all items in the navigation bar
+const navItems = document.querySelectorAll('.secondNav a');
 
+navItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Hide all pages
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => {
+            page.style.display = 'none';
+        });
+
+        // Show the corresponding page
+        const pageId = this.getAttribute('href').substring(1); // Get the id from the href attribute of the clicked item
+        const page = document.getElementById(pageId);
+        if (page) {
+            page.style.display = 'block';
+        }
+    });
+});
 
 
 
@@ -184,6 +264,11 @@ $('#sort-by').on('change', function(){
             return b.year - a.year;
         });
     }
+    if (selectedOptions.includes('alpha')) {
+        filteredData.sort(function(a, b){
+            return a.title.localeCompare(b.title);
+        });
+    }
     displayImages();
 });
 
@@ -200,24 +285,7 @@ $(document).ready(function(){
     });
 })
 
-//Event listener for date-sort dropdown
 
-/* document.addEventListener('DOMContentLoaded', function() {
-    // Your code here
-    document.getElementById('sort').addEventListener('change', function() {
-        const selectedOption = this.value;
-
-        const dateSortElement = document.getElementById('date-sort');
-
-        if (selectedOption) {
-            dateSortElement.style.display = 'block'; // make date sort option visible
-        } else {
-            dateSortElement.style.display = 'none'; // leave date sort option hidden
-        }
-    });
-
-    document.getElementById('date-sort').addEventListener('change', sortAndDisplayImagesByDate);
-}); */
 /*
 const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
 const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";

@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -21,15 +24,12 @@
         <header>
             <nav class="firstNav">
                 <ul>
-                    <li id="banksy-item"><a href="#home">Banksy</a></li>
+                    <li id="banksy-item"><a href="#landing-page">Banksy</a></li>
                     <li><a href="#landing-page">Home</a></li>
                     <li><a href="#gallery-display">Gallery</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#all-about-banksy">About</a></li>
                 </ul>
-                <form action="" method="get" class="search">
-                    <input type="search" name="q" placeholder="Search...">
-                    <input type="submit" value="Search">
-                </form>
+
             </nav>
         </header>
             <div class="title">
@@ -46,7 +46,7 @@
             <h1>Filter Art</h1>
             <div class="selectContainers">
                 <div class="dropDownContainer">
-                    <label for="Topics">Topic</label>
+                    <label for="Topics">Topics</label>
                     <select id="Topics" multiple="multiple">
                         <option value="Art History">Art History</option>
                         <option value="Consumerism">Consumerism</option>
@@ -65,9 +65,12 @@
                     <select id="sort-by" multiple="multiple">
                         <option value="recent">Recent to Oldest</option>
                         <option value="oldest">Oldest to Recent</option>
-                        <option type="checkbox" value="alpha">Alphabetical Order</option>
+                        <option value="alpha">Alphabetical Order</option>
                     </select>
                 </div>
+
+
+
 
             </div>
         </div>
@@ -75,34 +78,36 @@
         <div id="image-container">
             <!-- images will be added here using JavaScript -->
         </div>
-        <div class="buttons">
-            <button id="prev-button">Previous Page</button>
+
+        <div class="buttons2">
+            <button id="prev-button">Previous</button>
             <button id="next-button">Next</button>
         </div>
 
-
         <div id="page-numbers">
+
 
         </div>
     </div>
 
-    <div class="secondNav">
-    <nav>
-        <ul>
-            <li><a href="#artworks">Artworks</a></li>
-            <li><a href="#about-banksy">About Banksy</a></li>
-            <li><a href="#news">News</a></li>
-        </ul>
-    </nav>
-    </div>
+
 
     <div id="all-about-banksy">
+        <div class="secondNav">
+            <nav>
+                <ul>
+                    <li><a href="#artworks">About Banksy&apos;s Artworks</a></li>
+                    <li><a href="#about-banksy">About Banksy</a></li>
+                    <li><a href="#news">Banksy News</a></li>
+                </ul>
+            </nav>
+        </div>
 
-
-    <div id="about-banksy">
+    <div id="about-banksy" class="page">
         <h1>About Banksy</h1>
         <img src="images/banksy_.jpg" alt="Banksy in the dark" class="banksy">
-        <p>Arguably the most controversial street artist in the world, Banksy&apos;s works have become a subculture in their own right. Banksy&apos;s political statements and disruptive vision have impacted cities across the globe at vital moments in modern history, provoking alternative viewpoints and encouraging revolution in the art world. His identity remains unknown, even after more than 30 years of involvement in the global graffiti scene. He has worked in many street art mediums and in many styles, breaking down the boundaries and expectations of street art critics. His work includes powerful, often controversial images, encouraging the rapid spread of his name and work across the internet. Today, his iconic works have been re-shared and repurposed beyond measure.
+        <p>Arguably the most controversial street artist in the world, Banksy&apos;s works have become a subculture in their own right. Banksy&apos;s political statements and disruptive vision have impacted cities across the globe at vital moments in modern history, provoking alternative viewpoints and encouraging revolution in the art world. His identity remains unknown, even after more than 30 years of involvement in the global graffiti scene.
+            He has worked in many street art mediums and in many styles, breaking down the boundaries and expectations of street art critics. His work includes powerful, often controversial images, encouraging the rapid spread of his name and work across the internet. Today, his iconic works have been re-shared and repurposed beyond measure.
             <br><br><br><br>Banksy&apos;s early days in graffiti art
             Banksy began his graffiti career by admiring the works of Blek Le Rat. He often recycled the artist&apos;s old ideas, moulding his own distinctive voice and style as he went. Initially, he was part of a graffiti crew in Bristol by the name of DryBreadZ Crew or DBZ. Soon after, he began to partner with Inkie, another notable graffiti street artist.
             At the age of 18, Banksy was nearly caught vandalizing public spaces by police. As his crew fled from the scene, Banksy was stuck hiding beneath a dustbin van. Banksy noticed stencil letters sprayed onto the truck, and, as he had been looking for a faster way to paint at the time, he decided stencilling would be his new graffiti style.
@@ -114,13 +119,13 @@
 
             In 2010, Banksy assumed the role of author and filmmaker for his film &apos;Exit Through the Gift Shop.&apos;
             Who is Banksy?
-            Very little is known about Banksy himself, as he refuses to be interviewed and carefully maintains his anonymity. A world-renowned mystery man, Banksy has risen through the ranks to become one of the world&apos;s greatest street artists partly by cultivating in his collectors an urgency and desire to unveil his character. Street art fanatics are consistently impressed by the far-reaching scope, variety, and bravery of every artwork he delivers, but are always left wanting more. This tactic encourages viewers to explore a completely new perspective or idea, often inspiring both amateur and professional artists. This inspiration is also known as the “Banksy Effect.”
+            Very little is known about Banksy himself, as he refuses to be interviewed and carefully maintains his anonymity. A world-renowned mystery man, Banksy has risen through the ranks to become one of the world&apos;s greatest street artists partly by cultivating in his collectors an urgency and desire to unveil his character. Street art fanatics are consistently impressed by the far-reaching scope, variety, and bravery of every artwork he delivers, but are always left wanting more. This tactic encourages viewers to explore a completely new perspective or idea, often inspiring both amateur and professional artists. This inspiration is also known as the &quot;Banksy Effect.&quot;
             A number of claims have been made over Banksy&apos;s identity, fuelling media interest. Most recently, many sources, including an entire newspaper publication, suggested he was a Bristol native by the name of Robin Gunninham. Though the prospect of uncovering Banksy&apos;s identity would allow for a greater understanding of his motives and mission, no claim had ever been confirmed. His identity has reputedly even been concealed from his family.
         </p>
     </div>
 
 
-    <div id="artworks">
+    <div id="artworks" class="page">
         <h1>About Banksy&apos;s Artwork</h1>
         <img src="images/PULP-FICTION-SOTHEBYS-ONLINE-18-MARCH-2021.jpeg" alt="Pulp fiction by Banksy" class="pulp">
         <p>Banksy is a contemporary British street artist and activist who, despite his international fame, has maintained an anonymous identity.
@@ -135,7 +140,7 @@
             The artist&apos;s style and use of cultural appropriation has given rise to a number of other street artists, including Mr. Brainwash and Alec Monopoly. He currently lives and works in the United Kingdom.</p>
     </div>
 
-    <div id="news">
+    <div id="news" class="page">
         <h1>Banksy News</h1>
 
         <div class="newsContainer">
