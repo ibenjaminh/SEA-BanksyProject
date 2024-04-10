@@ -218,6 +218,8 @@ nav li a {
     font-family: 'Playfair Display SC', serif;
 }
 /* Select2 */
+
+
 .select2-container .select2-selection--multiple {
     min-height: 32px;
 }
@@ -259,7 +261,7 @@ nav li a {
 
 
 .selectContainers {
-    display: flex;
+    display: flex; !important;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -457,6 +459,18 @@ nav li a {
 .newsItem a {
     color: #D9D9D9;
     text-decoration: none;
+}
+/* FOOTER */
+footer {
+    background-color: #92213D;
+    color: white;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 /*screens up to 768px wide */

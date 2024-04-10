@@ -5,12 +5,12 @@
  * also make changes to the HTML and CSS files, but we want you to prioritize
  * demonstrating your understanding of data structures, and you'll do that
  * with the JavaScript code you write in this file.
- * 
+ *
  * The comments in this file are only to help you learn how the starter code
  * works. The instructions for the project are in the README. That said, here
  * are the three things you should do first to learn about the starter code:
- * - 1 - Change something small in index.html or style.css, then reload your 
- *    browser and make sure you can see that change. 
+ * - 1 - Change something small in index.html or style.css, then reload your
+ *    browser and make sure you can see that change.
  * - 2 - On your browser, right click anywhere on the page and select
  *    "Inspect" to open the browser developer tools. Then, go to the "console"
  *    tab in the new window that opened up. This console is where you will see
@@ -20,7 +20,7 @@
  * - 3 - Add another string to the titles array a few lines down. Reload your
  *    browser and observe what happens. You should see a fourth "card" appear
  *    with the string you added to the array, but a broken image.
- * 
+ *
  */
 let data;
 let currentPage = 1;
@@ -200,22 +200,32 @@ function previousPage() {
 document.getElementById('next-button').addEventListener('click', nextPage);
 document.getElementById('prev-button').addEventListener('click', previousPage);
 
+
+
 // Select all items in the navigation bar
 const navItems = document.querySelectorAll('.secondNav a');
+
+// Hide all pages
+const pages = document.querySelectorAll('.page');
+pages.forEach(page => {
+    page.style.display = 'none';
+});
+
+// Show the "about-banksy" section by default
+document.querySelector('#about-banksy').style.display = 'block';
 
 navItems.forEach(item => {
     item.addEventListener('click', function(e) {
         e.preventDefault();
 
         // Hide all pages
-        const pages = document.querySelectorAll('.page');
         pages.forEach(page => {
             page.style.display = 'none';
         });
 
         // Show the corresponding page
         const pageId = this.getAttribute('href').substring(1); // Get the id from the href attribute of the clicked item
-        const page = document.getElementById(pageId);
+        const page = document.querySelector('#' + pageId);
         if (page) {
             page.style.display = 'block';
         }
@@ -297,7 +307,7 @@ let titles = [
     "Curb Your Enthusiasm",
     "East Los High"
 ];
-// Your final submission should have much more data than this, and 
+// Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
 
 
@@ -306,7 +316,7 @@ function showCards() {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
     const templateCard = document.querySelector(".card");
-    
+
     for (let i = 0; i < titles.length; i++) {
         let title = titles[i];
 
