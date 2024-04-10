@@ -98,7 +98,6 @@ function displayImages() {
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
 
-    // Selects all the overlay elements
 
     filteredData.slice(start, end).forEach(image => {
         const img = document.createElement('img');
@@ -271,7 +270,7 @@ $('#sort-by').on('change', function(){
     }
     if (selectedOptions.includes('oldest')) {
         filteredData.sort(function(a, b){
-            return b.year - a.year;
+            return a.year - b.year;
         });
     }
     if (selectedOptions.includes('alpha')) {
